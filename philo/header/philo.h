@@ -6,7 +6,7 @@
 /*   By: gmorange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:17:49 by gmorange          #+#    #+#             */
-/*   Updated: 2021/11/26 15:06:44 by gmorange         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:02:32 by gmorange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_philo
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*philo_speak;
 	pthread_mutex_t	*mutex_of_death;
+	int				last;
 	t_all			*all;
 }				t_philo;
 

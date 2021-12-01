@@ -6,7 +6,7 @@
 /*   By: gmorange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:27:48 by gmorange          #+#    #+#             */
-/*   Updated: 2021/11/29 13:59:28 by gmorange         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:11:49 by gmorange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	cycle(t_philo *philo)
 {
-	put_status(philo, "is thinking");
 	eating(philo);
 	sleeping(philo);
+	put_status(philo, "is thinking");
 	if (check_someone_died(philo) == TRUE)
 		return (FALSE);
 	return (TRUE);
@@ -29,8 +29,8 @@ void	*ft_philo(void *arg)
 
 	philo = arg;
 	ret = TRUE;
-	if (philo->nbr % 2 == 1)
-		usleep(philo->time_to_die / 2);
+	if (philo->nbr % 2 == 1 && philo->last == FALSE)
+		usleep(philo->time_to_eat * 1000 / 2);
 	if (philo->nbr_of_cycles > 0)
 	{
 		while (philo->nbr_of_cycles > 0 && ret == TRUE)

@@ -6,7 +6,7 @@
 /*   By: gmorange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 09:50:53 by gmorange          #+#    #+#             */
-/*   Updated: 2021/11/26 14:55:20 by gmorange         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:08:57 by gmorange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	init_philos(t_all *all, int i, int right, int left)
 	all->philo[i].nbr = i + 1;
 	all->philo[i].someone_is_dead = &all->someone_is_dead;
 	all->tab_of_life[i] = now(&all->philo[i]) + all->time_to_die;
+	all->philo[i].last = FALSE;
+	if (i == all->nbr_philo - 1)
+		all->philo[i].last = TRUE;
 	pthread_create(&all->philo[i].thr, NULL, &ft_philo, &all->philo[i]);
 }
 
